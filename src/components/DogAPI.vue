@@ -5,11 +5,10 @@
   export default {
     setup() {
       const { error, imgs, loading,  } = storeToRefs(useDogApiStore())
-      const { fetchRandomImg } = useDogApiStore()
-      return { error, fetchRandomImg, imgs, loading }
+      const { fetchRandomImg, removeImg } = useDogApiStore()
+      return { error, fetchRandomImg, imgs, loading, removeImg }
     },
     mounted() {
-      
       if (this.imgs.length === 0) {
         this.fetchRandomImg()
       }
@@ -26,7 +25,7 @@
     
     <br/>
     <div v-if="imgs">
-      <img v-for="img in imgs" :key="img" :src="img" alt="random dog image"/>
+      <img v-for="(img, idx) in imgs" :key="img" :src="img" alt="random dog image" @click="removeImg(idx)"/>
     </div>
   </main>
 </template>
@@ -37,6 +36,6 @@
   }
 
   img {
-    width: 500px;
+    width: 100%;
   }
 </style>

@@ -19,16 +19,19 @@ export const useDogApiStore = defineStore<string,DogApiState>({
     async fetchRandomImg() {
       this.loading = true
       try {
-        this.imgs.push(
+        this.imgs.unshift(
           await fetch(`https://dog.ceo/api/breeds/image/random`)
           .then((response) => response.json())
           .then((data: {message:string, status: string}) => data.message)
         )
       } catch (error) {
-        this.error = error
+        this.error = error as Error
       } finally {
         this.loading = false
       }
+    },
+    removeImg(idx: number) {
+      this.imgs.splice(idx, 1)
     }
   }
 })

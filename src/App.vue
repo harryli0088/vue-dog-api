@@ -125,4 +125,24 @@ nav a:first-of-type {
     margin-top: 1rem;
   }
 }
+
+button {
+	color: hsla(160, 100%, 37%, 1);
+  background-color: transparent;
+  padding: 0.5em;
+  border: 1px solid hsla(160, 100%, 37%, 1);
+  border-radius: 3px;
+	outline: none;
+  cursor: pointer;
+  transition: 0.5s;
+}
+
+button:hover {
+	transform: scale(1.1);
+}
+
+button:active {
+	transform: scale(0.9);
+}
+
 </style>

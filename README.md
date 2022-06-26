@@ -1,6 +1,8 @@
 # vue-dog-api
 
-This template should help get you started developing with Vue 3 in Vite.
+This is a frontend test application for me to learn how to use Vite + Vue 3.
+
+![Screenshot](public/screenshot.png)
 
 ## Recommended IDE Setup
 
@@ -56,4 +58,33 @@ npm run test:e2e # or `npm run test:e2e:ci` for headless testing
 
 ```sh
 npm run lint
+```
+
+## GitHub Pages Setup
+
+Install `gh-pages`
+```
+npm i -D gh-pages
+```
+
+Edit `vite.config.ts`:
+```.ts
+export default defineConfig({
+  base: process.env.NODE_ENV === 'production' ? '/vue-dog-api/' : '/'
+});
+```
+Something dumb I found is that `vue.config.js` is not acutally picked up by vite during the build process, so don't bother trying to use `publicPath`
+
+Edit `package.json`:
+```.json
+{
+    "scripts": {
+        "deploy": "npm run build && npx gh-pages -d dist -t true"
+    }
+}
+```
+
+Run the deploy script:
+```
+npm run deploy
 ```
