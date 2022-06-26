@@ -2,6 +2,8 @@
 
 This is a frontend test application for me to learn how to use Vite + Vue 3.
 
+https://harryli0088.github.io/vue-dog-api/
+
 ![Screenshot](public/screenshot.png)
 
 ## Recommended IDE Setup
